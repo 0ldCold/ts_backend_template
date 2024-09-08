@@ -68,7 +68,7 @@
     "vitest": "^1.5.0"
   },
   "engines": {
-    "node": "^18.0.0 || >=20.0.0"
+    "node": ">=21.0.0"
   },
   "packageManager": "yarn@4.4.1",
   "nodemonConfig": {

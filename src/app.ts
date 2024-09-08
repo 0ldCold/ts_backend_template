@@ -8,8 +8,10 @@ import { isExist } from './helpers/isExist';
 import swaggerUi from 'swagger-ui-express';
 import { RegisterRoutes } from './routes';
 import { errorHandler } from 'src/middlewares/error/errorHeandler';
-import swagger from '../swagger.json' with { type: 'json' };
 import { corsResolver } from 'src/middlewares/corsResolver';
+
+// TODO: Решить проблему с импортом json и понизить версию ноды до 20-й
+import swagger from '../swagger.json' with { type: 'json' };
 
 const port = process.env.VITE_APP_PORT;
 if (!isExist(port) || Number.isNaN(+port)) {
