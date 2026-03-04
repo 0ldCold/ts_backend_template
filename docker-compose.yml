@@ -1,9 +1,9 @@
 services:
   postgres:
-    image: 'postgres:14.5'
+    image: "postgres:14.5"
     ports:
-      - '5432:5432'
+      - "${VITE_DB_PORT}:5432"
     environment:
-      POSTGRES_USER: 'test'
-      POSTGRES_PASSWORD: 'test'
-      POSTGRES_DB: 'test'
+      POSTGRES_DB: "${VITE_DB_NAME}"
+      POSTGRES_USER: "${VITE_DB_USERNAME}"
+      POSTGRES_PASSWORD: "${VITE_DB_PASSWORD}"

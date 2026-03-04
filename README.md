@@ -27,12 +27,13 @@
 
 ### Подготовка
 
-1. Создать файл `.env` со структурой как в файле `.env.example`
-2. `yarn install`
-3. `docker-compose up -d`
-4. `yarn run build:full`
-5. `yarn run db:create`
-6. `yarn run migration:run`
+1. `copy .env.example .env`
+2. Отредактировать файл `.env` при необходимости
+3. `yarn install`
+4. `docker-compose up -d`
+5. `yarn run build:full`
+6. `yarn run db:create`
+7. `yarn run migration:run`
 
 ### В dev-mode
 
@@ -41,16 +42,23 @@
 
 ### В prod-mode
 
-1. `yarn run seed:fresh`
-2. `yarn run start`
+1. `yarn run start`
 
-### CI/CD
+### CI/CD проверка
 
 1. `yarn install --immutable`
 2. `yarn run build:routes`
 3. `yarn run types`
 4. `yarn run lint:check`
 5. `yarn run prettier:check`
+6. `yarn run build:app`
+
+### CI/CD деплой
+
+1. `yarn install --immutable`
+2. `yarn run build:full`
+3. `yarn run migration:run`
+4. `yarn run build:run`
 
 ### Проверка кода:
 
@@ -105,7 +113,7 @@
 Чтобы локально работать без миграции нужно включить опцию `synchronize: true` в `src/database/data-source.ts`<br>
 Только перед этим желательно дропнуть БД (без сидов): `yarn run db:drop`
 
-Перед работой с миграциями нужно обязательно сбилдить приложение:
+# !!! Перед работой с миграциями нужно обязательно сбилдить приложение: !!!
 
 `yarn run build:full`
 
